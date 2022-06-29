@@ -1,0 +1,21 @@
+{
+    "username":"Madi",
+    "email":"Madi_email@gmail.com",
+    "password":"Madi_password",
+    "pets":[],
+    "pin":[]
+},
+{
+    "username":"Carl",
+    "email":"Carl_email@gmail.com",
+    "password":"Carl_password",
+    "pets":[],
+    "pin":[]
+},
+{
+    "username":"Rod",
+    "email":"Rod_email@gmail.com",
+    "password":"Rod_password",
+    "pets":[],
+    "pin":[]
+}
