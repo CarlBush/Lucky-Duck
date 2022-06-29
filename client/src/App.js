@@ -1,9 +1,10 @@
-import './App.css';
+import MapTracker from './pages/Map';
 
 function App() {
   return (
     <div className="App">
-      LUCKY DUCK 
+      LUCKY DUCK
+      <MapTracker></MapTracker>
     </div>
   );
 }
