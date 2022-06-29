@@ -3,7 +3,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 //REGISTER
-
+//http://localhost:8800/api/users/register
 router.post("/register", async (req, res) => {
     try {
         //generate new password
@@ -26,6 +26,7 @@ router.post("/register", async (req, res) => {
 })
 
 //LOGIN
+//http://localhost:8800/api/users/login
 router.post("/login", async (req, res) => {
     try {
         //find user
