@@ -46,7 +46,7 @@ const MapTracker = function () {
                     closeOnClick={false}>
                     <div className="card">
                         <label>Pet Name</label>
-                        <h4 className="place">Sgt. Peppers</h4>
+                        <h4>Sgt. Peppers</h4>
                         <label>Owner Name</label>
                         <p>JK Meowling</p>
                         <label>Contact Number</label>

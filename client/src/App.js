@@ -1,4 +1,4 @@
-import MapTracker from './pages/Map';
+import MapTracker from './components/Map';
 
 function App() {
   return (
