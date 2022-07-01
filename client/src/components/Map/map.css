@@ -1,10 +1,8 @@
 .card {
-    width: 200px;
-    height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-} 
+    justify-content: space-between;
+}
 
 label {
     width: max-content;
@@ -12,4 +10,19 @@ label {
     font-size: 13px;
     border-bottom: 0.5px solid purple;
     margin: 3px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pinButton {
+    cursor: pointer;
+    background-color: purple;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
 }
