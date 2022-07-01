@@ -1,10 +1,11 @@
 import "./map.css"
 import * as React from 'react';
 import Map, { Marker, Popup } from 'react-map-gl';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const pins = [
     {
+        _id: 1,
         user: "Carl",
         pet: "SgtPeppers",
         contact: 5205205205,
@@ -13,6 +14,7 @@ const pins = [
         long: -110.97
     },
     {
+        _id: 2,
         user: "Rod",
         pet: "ColSanders",
         contact: 4803942482,
@@ -21,6 +23,7 @@ const pins = [
         long: -111.9
     },
     {
+        _id: 3,
         user: "Madi",
         pet: "Meowzers",
         contact: 6231235432,
@@ -40,21 +43,12 @@ const MapTracker = function () {
         zoom: 5
     });
 
+    const [currentPinId, setCurrentPinId] = useState(null)
 
-    // const [pins, setPins] = useState([])
+    const handleMarkerClick = function (id) {
+        setCurrentPinId(id);
 
-    // useEffect(() => {
-    //     const getPins = async function () {
-    //         try {
-    //             //const res = await axios.get("/pins");
-    //             setPins(pins.data);
-    //             console.log(pins)
-    //         } catch (err) {
-    //             console.log(err)
-    //         }
-    //     }
-    //     getPins();
-    // });
+    }
 
     return (
         <div>
@@ -69,25 +63,28 @@ const MapTracker = function () {
             >
                 {pins.map(p => (
                     <>
-                        <Marker longitude={p.long} latitude={p.lat} color="red">
+                        <Marker longitude={p.long} latitude={p.lat} color="red" onClick={() => handleMarkerClick(p._id)}>
+
                         </Marker>
-                        <Popup
-                            longitude={p.long}
-                            latitude={p.lat}
-                            anchor="left"
-                            closeButton={true}
-                            closeOnClick={false}>
-                            <div className="card">
-                                <label>Pet Name</label>
-                                <h4>{p.pet}</h4>
-                                <label>Owner Name</label>
-                                <p>{p.user}</p>
-                                <label>Contact Number</label>
-                                <p><b>{p.contact}</b></p>
-                                <label>Date Missing</label>
-                                <p>{p.createdAt}</p>
-                            </div>
-                        </Popup>
+                        {p._id === currentPinId && (
+                            <Popup
+                                longitude={p.long}
+                                latitude={p.lat}
+                                anchor="left"
+                                closeButton={true}
+                                closeOnClick={false}>
+                                <div className="card">
+                                    <label>Pet Name</label>
+                                    <h4>{p.pet}</h4>
+                                    <label>Owner Name</label>
+                                    <p>{p.user}</p>
+                                    <label>Contact Number</label>
+                                    <p><b>{p.contact}</b></p>
+                                    <label>Date Missing</label>
+                                    <p>{p.createdAt}</p>
+                                </div>
+                            </Popup>
+                        )}
                     </>
                 ))}
             </Map>;
