@@ -37,12 +37,12 @@ const pins = [
 
 ]
 
-
 const MapTracker = function () {
 
     const currentUser = ({
         username: "Carl",
-        contact: 5205205205
+        contact: 5205205205,
+        createdAt: "05/11/2022"
     })
 
     const [currentPinId, setCurrentPinId] = useState(null);
@@ -77,6 +77,8 @@ const MapTracker = function () {
 
     };
 
+    //CREATES NEW PIN ON SUBMIT
+    //currently pushes to array "pins"
     const handleSubmit = async function (e) {
         e.preventDefault();
         const newCreatedPin = {
@@ -85,7 +87,8 @@ const MapTracker = function () {
             pet: pet,
             pinText: pinText,
             lat: newPin.lat,
-            long: newPin.long
+            long: newPin.long,
+            createdAt: currentUser.createdAt
         }
         await console.log(newCreatedPin);
         pins.push(newCreatedPin);
