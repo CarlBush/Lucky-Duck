@@ -39,8 +39,19 @@ const pins = [
 
 
 const MapTracker = function () {
+
+    const currentUser = ({
+        username: "Carl",
+        contact: 5205205205
+    })
+
     const [currentPinId, setCurrentPinId] = useState(null);
     const [newPin, setNewPin] = useState(null);
+
+    const [pet, setPet] = useState(null);
+    const [pinText, setPinText] = useState(null);
+
+
 
     //DEFAULT STARTING LOCATION
     const [viewPort, setViewport] = useState({
@@ -66,6 +77,21 @@ const MapTracker = function () {
 
     };
 
+    const handleSubmit = async function (e) {
+        e.preventDefault();
+        const newCreatedPin = {
+            username: currentUser.username,
+            contact: currentUser.contact,
+            pet: pet,
+            pinText: pinText,
+            lat: newPin.lat,
+            long: newPin.long
+        }
+        await console.log(newCreatedPin);
+        pins.push(newCreatedPin);
+        setNewPin(null);
+    };
+
     return (
         <div>
             <Map
@@ -80,8 +106,8 @@ const MapTracker = function () {
             >
                 {pins.map((p) => (
                     <>
-                        <Marker longitude={p.long} latitude={p.lat} color="red" onClick={() => handleMarkerClick(p._id, p.lat, p.long)}>
-
+                        <Marker longitude={p.long} latitude={p.lat} color="none" onClick={() => handleMarkerClick(p._id, p.lat, p.long)}>
+                        <img src={require(`./favicon.ico`)} alt="duck"/>
                         </Marker>
                         {p._id === currentPinId && (
                             <Popup
@@ -116,11 +142,11 @@ const MapTracker = function () {
                         closeOnClick={false}
                     >
                         <div className="card">
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <label>Pet Name</label>
-                                <input placeholder="Pet Name"></input>
+                                <input placeholder="Pet Name" onChange={(e) => setPet(e.target.value)}></input>
                                 <label>Comments</label>
-                                <textarea placeholder="Enter Comments Here"></textarea>
+                                <textarea placeholder="Enter Comments Here" onChange={(e) => setPinText(e.target.value)}></textarea>
                                 <button className="pinButton" type="submit">Add Pin</button>
                             </form>
                         </div>
