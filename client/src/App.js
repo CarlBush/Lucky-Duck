@@ -1,9 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 import Home from './pages/home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+
+const styleLink = document.createElement("link");
+styleLink.rel = "stylesheet";
+styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
+document.head.appendChild(styleLink);
 
 //establish link to graphql server
 const httpLink = createHttpLink({
@@ -22,12 +27,7 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <div>
-      <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-      </Routes>
+        <Home></Home>
       </div>
       <Footer></Footer>
     </div>
