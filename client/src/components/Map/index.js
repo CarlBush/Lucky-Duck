@@ -1,4 +1,4 @@
-import "./map.css"
+import "./map.css";
 import * as React from 'react';
 import Map, { Marker, Popup } from 'react-map-gl';
 import { useState } from "react";
@@ -36,19 +36,28 @@ const pins = [
 
 
 const MapTracker = function () {
+    const [currentPinId, setCurrentPinId] = useState(null);
+    const [newPin, setNewPin] = useState(null);
 
+    //DEFAULT STARTING LOCATION
     const [viewPort, setViewport] = useState({
         longitude: -111,
         latitude: 34,
-        zoom: 5
+        zoom: 5.8
     });
 
-    const [currentPinId, setCurrentPinId] = useState(null)
-
+    //ONCLICK OPENS MARKER POPUP
     const handleMarkerClick = function (id) {
         setCurrentPinId(id);
+    };
 
-    }
+    const handleAddClick = function (e) {
+        console.log(e);
+        setNewPin({
+            long: e.lngLat.lng,
+            lat: e.lngLat.lat
+        })
+    };
 
     return (
         <div>
@@ -58,10 +67,10 @@ const MapTracker = function () {
                 onMove={evt => setViewport(evt.viewPort)}
                 style={{ width: 800, height: 600 }}
                 mapStyle="mapbox://styles/carlbush/cl4yu61c9000214qr90dghwba"
-
+                onDblClick={handleAddClick}
             /* OTHER VIEW STYLE = mapbox://styles/mapbox/streets-v9*/
             >
-                {pins.map(p => (
+                {pins.map((p) => (
                     <>
                         <Marker longitude={p.long} latitude={p.lat} color="red" onClick={() => handleMarkerClick(p._id)}>
 
@@ -72,7 +81,8 @@ const MapTracker = function () {
                                 latitude={p.lat}
                                 anchor="left"
                                 closeButton={true}
-                                closeOnClick={false}>
+                                closeOnClick={false}
+                            >
                                 <div className="card">
                                     <label>Pet Name</label>
                                     <h4>{p.pet}</h4>
@@ -87,7 +97,18 @@ const MapTracker = function () {
                         )}
                     </>
                 ))}
-            </Map>;
+                {newPin && (
+                    <Popup
+                        longitude={newPin.long}
+                        latitude={newPin.lat}
+                        anchor="left"
+                        closeButton={true}
+                        closeOnClick={false}
+                    >
+                        Hello
+                    </Popup>
+                )}
+            </Map>
         </div>
     );
 };
