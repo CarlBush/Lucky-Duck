@@ -55,7 +55,7 @@ const MapTracker = function () {
                         <p>06/23/2022</p>
                     </div>
                 </Popup>
-            </Map>;
+            </Map>
         </div>
     );
 };
