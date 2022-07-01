@@ -47,10 +47,13 @@ const MapTracker = function () {
     });
 
     //ONCLICK OPENS MARKER POPUP
-    const handleMarkerClick = function (id) {
+    const handleMarkerClick = function (id, lat, long) {
         setCurrentPinId(id);
+        //ONCE POPUP IS CLICKED IT WILL CENTER THE POPUP ON MAP
+        setViewport({...viewPort, latitude: lat, longitude: long})
     };
 
+    //RETRIEVE THE LAT & LONG FROM DOUBLE CLICK ON MAP AND setNewPin
     const handleAddClick = function (e) {
         console.log(e);
         setNewPin({
@@ -72,7 +75,7 @@ const MapTracker = function () {
             >
                 {pins.map((p) => (
                     <>
-                        <Marker longitude={p.long} latitude={p.lat} color="red" onClick={() => handleMarkerClick(p._id)}>
+                        <Marker longitude={p.long} latitude={p.lat} color="red" onClick={() => handleMarkerClick(p._id, p.lat, p.long)}>
 
                         </Marker>
                         {p._id === currentPinId && (
