@@ -107,26 +107,6 @@ const MapTracker = function () {
                 transitionDuration="500"
             /* OTHER VIEW STYLE = mapbox://styles/mapbox/streets-v9*/
             >
-<<<<<<< HEAD
-                <Marker longitude={-111.9} latitude={33.4} color="red"></Marker>
-                <Popup
-                    longitude={-111.9}
-                    latitude={33.4}
-                    anchor="left"
-                    closeButton={true}
-                    closeOnClick={false}>
-                    <div className="card">
-                        <label>Pet Name</label>
-                        <h4>Sgt. Peppers</h4>
-                        <label>Owner Name</label>
-                        <p>JK Meowling</p>
-                        <label>Contact Number</label>
-                        <p><b>520-623-4321</b></p>
-                        <label>Date Missing</label>
-                        <p>06/23/2022</p>
-                    </div>
-                </Popup>
-=======
                 {pins.map((p) => (
                     <>
                         <Marker longitude={p.long} latitude={p.lat} color="none" onClick={() => handleMarkerClick(p._id, p.lat, p.long)}>
@@ -176,7 +156,6 @@ const MapTracker = function () {
                     </Popup>
                 )}
                 <FullscreenControl />
->>>>>>> b4af3b1ac76e8322796bfb5291ec0199fc7480da
             </Map>
         </div>
     );
