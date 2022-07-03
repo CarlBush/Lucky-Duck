@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  position:relative;
+}
+
+#login {
+    background-color: #b79ced;
+}
+
+#lucky {
+    font-family: 'Train One', serif;
+    font-size: 4rem;
+    font-weight: lighter;
+}
+
+.nav {
+    margin-bottom: 20px;
+}
+
+.petList {
+    margin:20px;
+}
+
+#profile {
+    padding: 30px;
+}
+
+#profile-button {
+    background-color: #b79ced;
+}
+
+#my-post {
+    padding: 30px;
+}
+
+#share {
+    background-color: #54C6EB;
+}
+
+#footer {
+    margin-bottom: 0;
+    position: absolute;
+    overflow: hidden;
+}
+

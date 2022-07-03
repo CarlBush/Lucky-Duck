@@ -5,6 +5,10 @@ import Home from './pages/home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import SignUpForm from './pages/signup';
+// import Login from './pages/login';
+import './index.css';
+// import Signup from './pages/signup';
+// import Profile from './pages/profile';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";

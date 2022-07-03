@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react'
+import { Card, Header } from 'semantic-ui-react'
 
 const PetList = ({ pins }) => {
 
@@ -41,16 +41,22 @@ const PetList = ({ pins }) => {
     }
 
     return (
-        <div>
-            <Header as='h3' textAlign='center'>View Lost Pets</Header>
+        <div className='petList'>
+            <Header as='h2' textAlign='center'>Lost Pets</Header>
             {pins.map(pins => (
                 //key tells react to track what data to re-render if something changes
-                <div key={pins._id}>
-                    <h3>{pins.pet}</h3>
-                    <p>
-                        {pins.pinText}
-                    </p>
-                </div>
+                <Card centered fluid key={pins._id}>
+                    <Card.Content>
+                        <Card.Header textAlign='center' content={pins.pet} />
+                        <Card.Description textAlign='center' content={pins.pinText} />
+                    </Card.Content>
+                </Card>
+                // <div key={pins._id}>
+                //     <h3>{pins.pet}</h3>
+                //     <p textAlign='center'>
+                //         {pins.pinText}
+                //     </p>
+                // </div>
             ))}
         </div>
 

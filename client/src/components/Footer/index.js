@@ -1,18 +1,21 @@
 import React from 'react';
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon, Container } from 'semantic-ui-react'
 
 const Footer = () => {
+
   return (
     <footer>
-      <div>
-        <Button color='facebook' size='mini'>
-            <Icon name='facebook' /> Facebook
-        </Button>
-        <Button color='twitter'size='mini'>
-            <Icon name='twitter' /> Twitter
-        </Button>
-        &copy;{new Date().getFullYear()} by Carl Bush, Rodrigo Valencia and Madi Milner
-      </div>
+                <Container fluid id='footer'>
+                    <Button color='facebook' floated='right' size='mini'>
+                        <Icon name='facebook' /> Facebook
+                    </Button>
+                    <Button color='twitter' floated='right' size='mini'>
+                        <Icon name='twitter' /> Twitter
+                    </Button>
+                    <Button color='instagram' floated='right' size='mini'>
+                        <Icon name='instagram' /> Instagram
+                    </Button>
+                </Container>
     </footer>
   );
 };

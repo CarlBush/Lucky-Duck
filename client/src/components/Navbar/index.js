@@ -28,56 +28,39 @@ export default class Navbar extends Component {
   render() {
     const { activeItem } = this.state
 
-    return (
-      <header >
-        {/* <div >
-        <Link to="/">
-          <h1>Lucky Duck</h1>
-        </Link>
-        <nav >
-          {Auth.loggedIn() ? (
-            <>
-              <Link to="/profile">My Profile</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
-        </nav>
-      </div> */}
-        <Header as='h1' textAlign='center'>
-          {/* <Image circular src='/favicon.ico' size='mini' /> */}
-          Lucky Duck
-        </Header>
-        <Menu pointing secondary>
-          <Menu.Menu position='right'>
-            <Menu.Item
-              name='Profile'
-              active={activeItem === 'Profile'}
-              onClick={this.handleItemClick}
-            >
-              Profile
+  return (
+    <header className='nav'>
+
+        <Menu pointing secondary size='massive'>
+            <Menu.Item>
+                <Header as='h1' id='lucky'>
+                    Lucky Duck
+                </Header>
             </Menu.Item>
-            <Menu.Item
-              name='Login'
-              active={activeItem === 'Login'}
-              onClick={this.handleItemClick}
-            >
-              Login
-            </Menu.Item>
-            <Menu.Item
-              name='Signup'
-              active={activeItem === 'Signup'}
-              onClick={this.handleItemClick}
-            >
-              Signup
-            </Menu.Item>
-          </Menu.Menu>
+
+            <Menu.Menu position='right'>
+                <Menu.Item
+                name='Profile'
+                active={activeItem === 'Profile'}
+                onClick={this.handleItemClick}
+                >
+                    Profile
+                </Menu.Item>
+                <Menu.Item
+                name='Login'
+                active={activeItem === 'Login'}
+                onClick={this.handleItemClick}
+                >
+                    {/* <Link to="/login">Login</Link> */}
+                </Menu.Item>
+                <Menu.Item
+                name='Signup'
+                active={activeItem === 'Signup'}
+                onClick={this.handleItemClick}
+                >
+                    {/* <Link to="/signup">Signup</Link> */}
+                </Menu.Item>
+            </Menu.Menu>
         </Menu>
       </header>
     );
