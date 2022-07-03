@@ -4,6 +4,8 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import Home from './pages/home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import Login from './pages/login';
+import './index.css';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";

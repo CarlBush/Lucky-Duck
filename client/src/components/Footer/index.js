@@ -1,18 +1,18 @@
 import React from 'react';
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon, Container } from 'semantic-ui-react'
 
 const Footer = () => {
   return (
     <footer>
-      <div>
+      <Container textAlign='right'>
         <Button color='facebook' size='mini'>
             <Icon name='facebook' /> Facebook
         </Button>
         <Button color='twitter'size='mini'>
             <Icon name='twitter' /> Twitter
         </Button>
-        &copy;{new Date().getFullYear()} by Carl Bush, Rodrigo Valencia and Madi Milner
-      </div>
+        {/* &copy;{new Date().getFullYear()} by Carl Bush, Rodrigo Valencia and Madi Milner */}
+      </Container>
     </footer>
   );
 };

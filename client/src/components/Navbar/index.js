@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import { Header, Menu } from 'semantic-ui-react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // import auth from '../../utils/auth';
 
@@ -29,33 +29,15 @@ render() {
 const { activeItem } = this.state
 
   return (
-    <header >
-      {/* <div >
-        <Link to="/">
-          <h1>Lucky Duck</h1>
-        </Link>
+    <header className='nav'>
 
-        <nav >
-          {Auth.loggedIn() ? (
-            <>
-              <Link to="/profile">My Profile</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
-        </nav>
-      </div> */}
-      <Header as='h1' textAlign='center'>
-      {/* <Image circular src='/favicon.ico' size='mini' /> */}
-        Lucky Duck
-        </Header>
-        <Menu pointing secondary>
+        <Menu pointing secondary size='massive'>
+            <Menu.Item>
+                <Header as='h1' id='lucky'>
+                    Lucky Duck
+                </Header>
+            </Menu.Item>
+
             <Menu.Menu position='right'>
                 <Menu.Item
                 name='Profile'
@@ -69,14 +51,14 @@ const { activeItem } = this.state
                 active={activeItem === 'Login'}
                 onClick={this.handleItemClick}
                 >
-                    Login
+                    {/* <Link to="/login">Login</Link> */}
                 </Menu.Item>
                 <Menu.Item
                 name='Signup'
                 active={activeItem === 'Signup'}
                 onClick={this.handleItemClick}
                 >
-                    Signup
+                    {/* <Link to="/signup">Signup</Link> */}
                 </Menu.Item>
             </Menu.Menu>
         </Menu>

@@ -5,7 +5,7 @@ import PetList from "../components/PetList";
 import { useQuery } from '@apollo/client';
 import { QUERY_PINS } from '../utils/queries';
 
-import { Grid } from 'semantic-ui-react'
+import { Grid, Segment, Placeholder } from 'semantic-ui-react'
 
 
 export const pins = [
@@ -52,17 +52,54 @@ const Home = () => {
     console.log(pins);
 
     return (
-        <Grid columns={2} divided>
+        <Grid columns={2} divided stackable>
             <Grid.Row>
-                <Grid.Column>
+                <Grid.Column width={10}>
                 <div >
                 <MapTracker pins={pins}></MapTracker>
                 </div>
                 </Grid.Column>
-                <Grid.Column>
+                <Grid.Column width={6}>
                 <div >
                     {loading ? (
-                        <div>Loading...</div>
+                        <div>
+                            <Segment raised>
+                                <Placeholder>
+                                <Placeholder.Header image>
+                                    <Placeholder.Line />
+                                    <Placeholder.Line />
+                                </Placeholder.Header>
+                                <Placeholder.Paragraph>
+                                    <Placeholder.Line length='medium' />
+                                    <Placeholder.Line length='short' />
+                                </Placeholder.Paragraph>
+                                </Placeholder>
+                            </Segment>
+                            <Segment raised>
+                                <Placeholder>
+                                <Placeholder.Header image>
+                                    <Placeholder.Line />
+                                    <Placeholder.Line />
+                                </Placeholder.Header>
+                                <Placeholder.Paragraph>
+                                    <Placeholder.Line length='medium' />
+                                    <Placeholder.Line length='short' />
+                                </Placeholder.Paragraph>
+                                </Placeholder>
+                            </Segment>
+                            <Segment raised>
+                                <Placeholder>
+                                <Placeholder.Header image>
+                                    <Placeholder.Line />
+                                    <Placeholder.Line />
+                                </Placeholder.Header>
+                                <Placeholder.Paragraph>
+                                    <Placeholder.Line length='medium' />
+                                    <Placeholder.Line length='short' />
+                                </Placeholder.Paragraph>
+                                </Placeholder>
+                            </Segment>
+                        </div>
                     ) : (
                         <PetList pins={pins} />
                     )}

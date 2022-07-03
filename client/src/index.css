@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+#login {
+    background-color: #b79ced;
+}
+
+#lucky {
+    font-family: 'Train One', serif;
+    font-size: 4rem;
+    font-weight: lighter;
+}
+
+.nav {
+    margin-bottom: 20px;
+}
+
+.petList {
+    margin:20px;
+}
