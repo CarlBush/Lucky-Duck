@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Login from './pages/login';
 import './index.css';
 import Signup from './pages/signup';
+import Profile from './pages/profile';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -30,7 +31,7 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <div>
-        <Signup></Signup>
+        <Home></Home>
       </div>
       <Footer></Footer>
     </div>

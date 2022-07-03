@@ -52,7 +52,7 @@ const Home = () => {
     console.log(pins);
 
     return (
-        <Grid columns={2} divided stackable>
+        <Grid columns={2} stackable>
             <Grid.Row>
                 <Grid.Column width={10}>
                 <div >

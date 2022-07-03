@@ -26,7 +26,7 @@ const Signup = () => (
         </Segment>
       </Form>
       <Message>
-        New? Sign up here.
+        Already have an account? Log in here.
         {/* New user? <Link to="/signup">Sign Up</Link> */}
       </Message>
     </Grid.Column>

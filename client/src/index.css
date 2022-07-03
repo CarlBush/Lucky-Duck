@@ -5,6 +5,7 @@
 html,
 body {
   min-height: 100%;
+  position:relative;
 }
 
 #login {
@@ -25,6 +26,25 @@ body {
     margin:20px;
 }
 
-.footer {
-    margin: 20px;
+#profile {
+    padding: 30px;
 }
+
+#profile-button {
+    background-color: #b79ced;
+}
+
+#my-post {
+    padding: 30px;
+}
+
+#share {
+    background-color: #54C6EB;
+}
+
+#footer {
+    margin-bottom: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
