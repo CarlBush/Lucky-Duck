@@ -1,6 +1,6 @@
 import React from 'react'
 import {  Grid, Icon, Header, Button, Card, Modal, Input, Form, Comment } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Profile = () => {
     const [open, setOpen] = React.useState(false)
