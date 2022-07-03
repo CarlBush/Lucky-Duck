@@ -3,15 +3,17 @@ import { Button, Icon, Container } from 'semantic-ui-react'
 
 const Footer = () => {
   return (
-    <footer>
-      <Container textAlign='right'>
-        <Button color='facebook' size='mini'>
+    <footer className='footer'>
+      <Container fluid>
+        <Button color='facebook' floated='right' size='mini'>
             <Icon name='facebook' /> Facebook
         </Button>
-        <Button color='twitter'size='mini'>
+        <Button color='twitter' floated='right' size='mini'>
             <Icon name='twitter' /> Twitter
         </Button>
-        {/* &copy;{new Date().getFullYear()} by Carl Bush, Rodrigo Valencia and Madi Milner */}
+        <Button color='instagram' floated='right' size='mini'>
+            <Icon name='instagram' /> Instagram
+        </Button>
       </Container>
     </footer>
   );

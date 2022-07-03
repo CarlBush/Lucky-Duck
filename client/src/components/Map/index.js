@@ -2,9 +2,42 @@ import "./map.css";
 import * as React from 'react';
 import Map, { Marker, Popup, FullscreenControl } from 'react-map-gl';
 import { useState } from "react";
-import { pins } from "../../pages/home";
 
-const MapTracker = function (props) {
+const pins = [
+    {
+        _id: 1,
+        username: "Carl",
+        pet: "SgtPeppers",
+        contact: 5205205205,
+        pinText: "please help",
+        lat: 32.25,
+        long: -110.97,
+        createdAt: "06/30/2022"
+    },
+    {
+        _id: 2,
+        username: "Rod",
+        pet: "ColSanders",
+        contact: 4803942482,
+        pinText: "HELPPP",
+        lat: 33.4,
+        long: -111.9,
+        createdAt: "06/20/2022",
+    },
+    {
+        _id: 3,
+        username: "Madi",
+        pet: "Meowzers",
+        contact: 6231235432,
+        pinText: "SOSSSSS",
+        lat: 33.1,
+        long: -111.5,
+        createdAt: "05/13/2022"
+    },
+
+]
+
+const MapTracker = function () {
 
     const currentUser = ({
         username: "Carl",
@@ -18,12 +51,13 @@ const MapTracker = function (props) {
     const [pet, setPet] = useState(null);
     const [pinText, setPinText] = useState(null);
 
+
+
     //DEFAULT STARTING LOCATION
     const [viewPort, setViewport] = useState({
         longitude: -111,
         latitude: 34,
-        zoom: 5.8,
-        doubleClickZoom: false
+        zoom: 5.8
     });
 
     //ONCLICK OPENS MARKER POPUP

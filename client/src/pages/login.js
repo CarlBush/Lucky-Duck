@@ -10,14 +10,8 @@ const Login = () => (
       </Header>
       <Form size='large'>
         <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
-          <Form.Input
-            fluid
-            icon='lock'
-            iconPosition='left'
-            placeholder='Password'
-            type='password'
-          />
+          <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address' />
+          <Form.Input fluid icon='lock' iconPosition='left' placeholder='Password' type='password' />
 
           <Button id='login' fluid size='large'>
             Login

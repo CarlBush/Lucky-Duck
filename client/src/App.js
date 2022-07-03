@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Login from './pages/login';
 import './index.css';
+import Signup from './pages/signup';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -29,7 +30,7 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <div>
-        <Home></Home>
+        <Signup></Signup>
       </div>
       <Footer></Footer>
     </div>
