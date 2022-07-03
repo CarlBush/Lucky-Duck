@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Menu } from 'semantic-ui-react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // import auth from '../../utils/auth';
 
@@ -39,26 +39,33 @@ export default class Navbar extends Component {
             </Menu.Item>
 
             <Menu.Menu position='right'>
+            <Menu.Item
+                name='Home'
+                active={activeItem === 'Home'}
+                onClick={this.handleItemClick}
+                >
+                    <Link to="/">Home</Link>
+                </Menu.Item>
                 <Menu.Item
                 name='Profile'
                 active={activeItem === 'Profile'}
                 onClick={this.handleItemClick}
                 >
-                    Profile
+                    <Link to="/profile">Profile</Link>
                 </Menu.Item>
                 <Menu.Item
                 name='Login'
                 active={activeItem === 'Login'}
                 onClick={this.handleItemClick}
                 >
-                    {/* <Link to="/login">Login</Link> */}
+                    <Link to="/login">Login</Link>
                 </Menu.Item>
                 <Menu.Item
                 name='Signup'
                 active={activeItem === 'Signup'}
                 onClick={this.handleItemClick}
                 >
-                    {/* <Link to="/signup">Signup</Link> */}
+                    <Link to="/signup">Signup</Link>
                 </Menu.Item>
             </Menu.Menu>
         </Menu>

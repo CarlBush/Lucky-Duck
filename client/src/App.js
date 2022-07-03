@@ -4,11 +4,10 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import Home from './pages/home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import SignUpForm from './pages/signup';
-// import Login from './pages/login';
+import SignUp from './pages/signup';
+import Login from './pages/login';
 import './index.css';
-// import Signup from './pages/signup';
-// import Profile from './pages/profile';
+import Profile from './pages/profile';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -36,7 +35,9 @@ function App() {
             <div>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/signup" element={<SignUpForm />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
               </Routes>
             </div>
             <Footer></Footer>
