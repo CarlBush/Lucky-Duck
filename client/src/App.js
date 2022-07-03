@@ -1,9 +1,10 @@
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 import Home from './pages/home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import SignUpForm from './pages/signup';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -24,13 +25,20 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <div className="App">
-      <Navbar></Navbar>
-      <div>
-        <Home></Home>
-      </div>
-      <Footer></Footer>
-    </div>
+      <Router>
+        <>
+          <div className="App">
+            <Navbar></Navbar>
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/signup" element={<SignUpForm />} />
+              </Routes>
+            </div>
+            <Footer></Footer>
+          </div>
+        </>
+      </Router>
     </ApolloProvider>
   );
 }
