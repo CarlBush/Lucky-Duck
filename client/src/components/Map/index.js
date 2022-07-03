@@ -35,12 +35,20 @@ const MapTracker = function (props) {
 
     //RETRIEVE THE LAT & LONG FROM DOUBLE CLICK ON MAP
     const handleAddClick = function (e) {
-        console.log(e);
-        setNewPin({
-            long: e.lngLat.lng,
-            lat: e.lngLat.lat
-        })
 
+        const token = true /*Auth.loggedIn() ? Auth.getToken() : null;*/
+
+        if (!token) {
+            return false;
+        }
+        try {
+            setNewPin({
+                long: e.lngLat.lng,
+                lat: e.lngLat.lat
+            })
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     //CREATES NEW PIN ON SUBMIT
@@ -61,6 +69,7 @@ const MapTracker = function (props) {
         setNewPin(null);
     };
 
+
     return (
         <div>
             <Map
@@ -70,13 +79,12 @@ const MapTracker = function (props) {
                 style={{ width: 800, height: 600 }}
                 mapStyle="mapbox://styles/carlbush/cl4yu61c9000214qr90dghwba"
                 onDblClick={handleAddClick}
-                transitionDuration="500"
             /* OTHER VIEW STYLE = mapbox://styles/mapbox/streets-v9*/
             >
                 {pins.map((p) => (
                     <>
-                        <Marker longitude={p.long} latitude={p.lat} color="none" onClick={() => handleMarkerClick(p._id, p.lat, p.long)}>
-                        <img src={require(`./favicon.ico`)} alt="duck"/>
+                        <Marker longitude={p.long} latitude={p.lat} key={p._id} onClick={() => handleMarkerClick(p._id, p.lat, p.long)}>
+                            <img src={require(`./favicon.ico`)} alt="duck" />
                         </Marker>
                         {p._id === currentPinId && (
                             <Popup
@@ -108,7 +116,7 @@ const MapTracker = function (props) {
                         latitude={newPin.lat}
                         anchor="left"
                         closeButton={true}
-                        closeOnClick={false}
+                        closeOnClick={true}
                     >
                         <div className="card">
                             <form onSubmit={handleSubmit}>
