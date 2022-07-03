@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Container, Segment} from 'semantic-ui-react'
+import { Button, Icon, Container } from 'semantic-ui-react'
 
 const Footer = () => {
 
