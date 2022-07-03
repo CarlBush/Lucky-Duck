@@ -1,36 +1,36 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
 import { Header, Menu } from 'semantic-ui-react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // import auth from '../../utils/auth';
 
 export default class Navbar extends Component {
-// //   const logout = event => {
-// //     event.preventDefault();
-// //     Auth.logout();
-// //   };
+  // //   const logout = event => {
+  // //     event.preventDefault();
+  // //     Auth.logout();
+  // //   };
 
 
-// const items = [
-//     { key: 'profile', name: 'Profile'},
-//     { key: 'login', name: 'Login'},
-//     { key: 'signup', name: 'Signup'}
-// ]
+  // const items = [
+  //     { key: 'profile', name: 'Profile'},
+  //     { key: 'login', name: 'Login'},
+  //     { key: 'signup', name: 'Signup'}
+  // ]
 
-// const Navbar = () => <Menu items={items} />
+  // const Navbar = () => <Menu items={items} />
 
-// export default Navbar;
+  // export default Navbar;
 
-state = {}
+  state = {}
 
-handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-render() {
-const { activeItem } = this.state
+  render() {
+    const { activeItem } = this.state
 
-  return (
-    <header >
-      {/* <div >
+    return (
+      <header >
+        {/* <div >
         <Link to="/">
           <h1>Lucky Duck</h1>
         </Link>
@@ -51,36 +51,43 @@ const { activeItem } = this.state
           )}
         </nav>
       </div> */}
-      <Header as='h1' textAlign='center'>
-      {/* <Image circular src='/favicon.ico' size='mini' /> */}
-        Lucky Duck
+        <Header as='h1' textAlign='center'>
+          {/* <Image circular src='/favicon.ico' size='mini' /> */}
+          Lucky Duck
         </Header>
         <Menu pointing secondary>
-            <Menu.Menu position='right'>
-                <Menu.Item
-                name='Profile'
-                active={activeItem === 'Profile'}
-                onClick={this.handleItemClick}
-                >
-                    Profile
-                </Menu.Item>
-                <Menu.Item
-                name='Login'
-                active={activeItem === 'Login'}
-                onClick={this.handleItemClick}
-                >
-                    Login
-                </Menu.Item>
-                <Menu.Item
-                name='Signup'
-                active={activeItem === 'Signup'}
-                onClick={this.handleItemClick}
-                >
-                    Signup
-                </Menu.Item>
-            </Menu.Menu>
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='Home'
+              active={activeItem === 'Home'}
+              onClick={this.handleItemClick}
+            >
+              <Link to="/">Home</Link>
+            </Menu.Item>
+            <Menu.Item
+              name='Profile'
+              active={activeItem === 'Profile'}
+              onClick={this.handleItemClick}
+            >
+              <Link to="/profile">Profile</Link>
+            </Menu.Item>
+            <Menu.Item
+              name='Login'
+              active={activeItem === 'Login'}
+              onClick={this.handleItemClick}
+            >
+              <Link to="/login">Login</Link>
+            </Menu.Item>
+            <Menu.Item
+              name='Signup'
+              active={activeItem === 'Signup'}
+              onClick={this.handleItemClick}
+            >
+              <Link to="/signup">Signup</Link>
+            </Menu.Item>
+          </Menu.Menu>
         </Menu>
-    </header>
-  );
-}
+      </header>
+    );
+  }
 };
