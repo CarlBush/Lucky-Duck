@@ -4,8 +4,8 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        helloWorld: () => {
-            return 'Hello World! This is a test?!';
+        pins: async () => {
+            return Pin.find().sort({ createdAt: -1 });
         }
     }
 };

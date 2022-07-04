@@ -4,11 +4,16 @@ const dateFormat = require('../utils/dateFormat');
 
 const pinSchema = new Schema(
     {
-        description
-        username: {
+        description: {
             type: String,
-            require: true,
+            required: 'You need to add a description',
+            minlength: 1,
+            maxlength: 300
         },
+        // username: {
+        //     type: String,
+        //     require: true,
+        // },
         lat: {
             type: Number,
             require: true
@@ -16,11 +21,16 @@ const pinSchema = new Schema(
         long: {
             type: Number,
             require: true
-        }
+        },
+        comments: [commentsSchema]
     },
     {
-        timestamps: true
+        toJSON: {
+            getters: true
+        },
+        // timestamps: true
     }
 );
 
-module.exports = mongoose.model('Pin', pinSchema);
+const Pin = model('Pin', pinSchema);
+module.exports = Pin;
