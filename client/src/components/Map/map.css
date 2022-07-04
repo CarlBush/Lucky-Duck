@@ -21,8 +21,21 @@ label {
 .pinButton {
     cursor: pointer;
     background-color: purple;
-    color:white;
+    color: white;
     border: none;
     border-radius: 5px;
     padding: 5px;
+}
+
+.mapContainer {
+    position: relative;
+    height: 600px !important;
+    width: 100% !important;
+}
+
+.mapboxgl-map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
 }

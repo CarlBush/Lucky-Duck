@@ -4,8 +4,8 @@
 
 html,
 body {
-  min-height: 100%;
-  position:relative;
+    min-height: 100%;
+    position: relative;
 }
 
 #login {
@@ -23,7 +23,7 @@ body {
 }
 
 .petList {
-    margin:20px;
+    margin: 20px;
 }
 
 #profile {
@@ -48,3 +48,7 @@ body {
     overflow: hidden;
 }
 
+.pet-card-container {
+    justify-content: center;
+    align-items: center;
+}
