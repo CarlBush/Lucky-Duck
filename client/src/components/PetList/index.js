@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Header } from 'semantic-ui-react'
+import { Card, Header, Image } from 'semantic-ui-react'
 
 const PetList = ({ pins }) => {
 
@@ -47,6 +47,7 @@ const PetList = ({ pins }) => {
                 //key tells react to track what data to re-render if something changes
                 <Card centered fluid key={pins._id}>
                     <Card.Content>
+                        <Image className="image" src={pins.image} size = "medium" rounded centered alt={pins.image}/>
                         <Card.Header textAlign='center' content={pins.pet} />
                         <Card.Description textAlign='center' content={pins.username}/>
                         <Card.Description textAlign='center' content={pins.contact}/>
