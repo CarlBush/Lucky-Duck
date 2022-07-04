@@ -6,6 +6,7 @@ const typeDefs = gql`
         description: String
         createdAt: String
         username: String
+        image: String
     }
     type Query {
         pins: [Pin]
