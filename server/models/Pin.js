@@ -1,7 +1,10 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require('mongoose');
+const commentsSchema = require('./Comments');
+const dateFormat = require('../utils/dateFormat');
 
-const PinSchema = new mongoose.Schema(
+const pinSchema = new Schema(
     {
+        description
         username: {
             type: String,
             require: true,
@@ -20,4 +23,4 @@ const PinSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("Pin", PinSchema);
+module.exports = mongoose.model('Pin', pinSchema);
