@@ -16,7 +16,7 @@ const PetList = ({ pins, currentPinId }) => {
                                     <Card.Header textAlign='center' content={p.pet} />
                                     <Card.Description textAlign='center' content={p.username} />
                                     <Card.Description textAlign='center' content={p.contact} />
-                                    <Card.Description textAlign='center' content={p.pinText} />
+                                    <Card.Description textAlign='center' content={p.description} />
                                     <Card.Meta textAlign='center' content={p.createdAt} />
                                 </Card.Content>
                             </Card>
