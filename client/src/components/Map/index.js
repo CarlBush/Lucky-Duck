@@ -4,6 +4,7 @@ import Map, { Marker, Popup, FullscreenControl } from 'react-map-gl';
 import { useState } from "react";
 import { Button, Modal, Input, Form, Grid, Card, Icon } from 'semantic-ui-react';
 import PetList from "../PetList";
+import { InputFile } from 'semantic-ui-react-input-file'
 
 const pins = [
     {
@@ -169,14 +170,14 @@ const MapTracker = function () {
                                         onClose={() => setOpen(false)}
                                         onOpen={() => setOpen(true)}
                                         open={open}
-                                        trigger={<Button id='profile-button' size='small'>Find Lost Pet</Button>}
+                                        trigger={<Button id='profile-button' size='small'>Add Lost Pet</Button>}
                                     >
                                         <Modal.Header>Need Help Finding Your Pet?</Modal.Header>
                                         <Modal.Content>
                                             <Modal.Description>
                                                 <p>
                                                     Please fill out the information below to post your lost pet and let the Lucky Duck Community aid
-                                                    you in your search. Include your pet's name, your city and state, specific area your pet was last
+                                                    you in your search. Include your pet's name, a photo of your pet, specific area your pet was last
                                                     seen, how you'd like to be contacted if spotted, and any other important details (is your pet skittish,
                                                     friendly, etc.).
                                                 </p>
@@ -190,6 +191,10 @@ const MapTracker = function () {
                                                 <Form.Field>
                                                     <Input focus placeholder='Description...' onChange={(e) => setPinText(e.target.value)} />
                                                 </Form.Field>
+                                                <InputFile
+                                                    button={{}}
+                                                    input={{}}
+                                                />
                                                 <Button
                                                     content="Share pet post"
                                                     labelPosition='right'
