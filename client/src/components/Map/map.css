@@ -29,7 +29,7 @@ label {
 
 .mapContainer {
     position: relative;
-    height: 100% !important;
+    height: 600px !important;
     width: 100% !important;
 }
 
@@ -38,4 +38,9 @@ label {
     top: 0;
     bottom: 0;
     width: 100%;
+}
+
+.pet-card-container {
+    justify-content: center;
+    align-items: center;
 }

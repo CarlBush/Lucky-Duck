@@ -3,7 +3,6 @@ import * as React from 'react';
 import Map, { Marker, Popup, FullscreenControl } from 'react-map-gl';
 import { useState } from "react";
 import { Button, Modal, Input, Form, Grid, Image, Card, Icon } from 'semantic-ui-react';
-import PetList from "../PetList";
 
 const pins = [
     {
@@ -68,6 +67,7 @@ const MapTracker = function () {
     //ONCLICK OPENS MARKER POPUP
     const handleMarkerClick = function (id, lat, long) {
         setCurrentPinId(id);
+        console.log(id)
         //ONCE POPUP IS CLICKED IT WILL CENTER THE POPUP ON MAP
         setViewport({ ...viewPort, latitude: lat, longitude: long })
 
@@ -136,17 +136,16 @@ const MapTracker = function () {
                                         closeButton={true}
                                         closeOnClick={false}
                                     >
-                                        <Card>
-                                            <Image className="image" src={p.image} rounded centered alt={p.image} />
+                                        <Card fluid>
                                             <Card.Content>
                                                 <Card.Header>{p.pet}</Card.Header>
                                                 <Card.Meta>
                                                     <span className='date'>{p.username}</span>
                                                 </Card.Meta>
-                                             </Card.Content>
+                                            </Card.Content>
                                             <Card.Content extra>
-                                                    <Icon name='phone volume' />
-                                                    {p.contact}
+                                                <Icon name='phone volume' />
+                                                {p.contact}
                                             </Card.Content>
                                         </Card>
                                     </Popup>
@@ -206,8 +205,23 @@ const MapTracker = function () {
                         <FullscreenControl />
                     </Map>
                 </Grid.Column>
-                <Grid.Column width={6}>
-                    <PetList pins={pins} />
+                <Grid.Column width={6} >
+                        {pins.map(p => (
+                            <>
+                                {p._id === currentPinId && (
+                                    <Card centered fluid key={p._id} className="pet-card-container">
+                                        <Card.Content>
+                                            <Image className="image" src={p.image} size="medium" rounded centered alt={p.image} />
+                                            <Card.Header textAlign='center' content={p.pet} />
+                                            <Card.Description textAlign='center' content={p.username} />
+                                            <Card.Description textAlign='center' content={p.contact} />
+                                            <Card.Description textAlign='center' content={p.pinText} />
+                                            <Card.Meta textAlign='center' content={p.createdAt} />
+                                        </Card.Content>
+                                    </Card>
+                                )}
+                            </>
+                        ))}
                 </Grid.Column>
             </Grid.Row>
         </Grid>
