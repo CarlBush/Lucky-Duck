@@ -36,11 +36,10 @@ const startApolloServer = async (typeDefs, resolvers) => {
   server.applyMiddleware({ app });
 
 
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/build")));
-  }
+  // if (process.env.NODE_ENV === "production") {
+  //   app.use(express.static(path.join(__dirname, "../client/build")));
+  // }
   
-  //REDIRECT IF PAGE NOT VALID PAGE
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
