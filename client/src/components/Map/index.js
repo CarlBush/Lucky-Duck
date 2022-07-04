@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button, Modal, Input, Form, Grid, Card, Icon } from 'semantic-ui-react';
 import PetList from "../PetList";
 import { InputFile } from 'semantic-ui-react-input-file'
+import Auth from "../../utils/auth";
 
 const pins = [
     {
@@ -82,7 +83,7 @@ const MapTracker = function () {
     //RETRIEVE THE LAT & LONG FROM DOUBLE CLICK ON MAP
     const handleAddClick = function (e) {
 
-        const token = true /*Auth.loggedIn() ? Auth.getToken() : null;*/
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if (!token) {
             return false;
