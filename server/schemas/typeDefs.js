@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type User {
-        _id: Id
+        _id: ID
         username: String
         email: String
         petCount: Int
@@ -11,7 +11,7 @@ const typeDefs = gql`
     }
 
     type Pin {
-        _id: Id
+        _id: ID
         pinText: String
         createdAt: String
         username: String
@@ -20,7 +20,7 @@ const typeDefs = gql`
     }
 
     type Comments {
-        _id: Id
+        _id: ID
         commentsBody: String
         createdAt: String
         username: String
@@ -31,19 +31,19 @@ const typeDefs = gql`
         users: [User]
         user(username: String!): User
         pins(username: String): [Pin]
-        pin(_id: Id!): Pin
+        pin(_id: ID!): Pin
     }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addPin(pinText: String!): Pin
-        addComments(pinId: Id!, commentsBody: String!): Pin
-        addPet(petId: Id!): User
+        addComments(pinId: ID!, commentsBody: String!): Pin
+        addPet(petId: ID!): User
     }
 
     type Auth {
-        token: Id!
+        token: ID!
         user: User
     }
 `;

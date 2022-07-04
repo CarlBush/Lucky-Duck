@@ -1,4 +1,4 @@
-{
+[{
     "username":"Madi",
     "email":"Madi_email@gmail.com",
     "password":"Madi_password",
@@ -19,3 +19,4 @@
     "pets":[],
     "pin":[]
 }
+]
