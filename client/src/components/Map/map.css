@@ -39,8 +39,3 @@ label {
     bottom: 0;
     width: 100%;
 }
-
-.pet-card-container {
-    justify-content: center;
-    align-items: center;
-}

@@ -1,30 +1,28 @@
-// import React from 'react';
-// import { Card, Header, Image } from 'semantic-ui-react'
+import React from 'react';
+import { Card, Image } from 'semantic-ui-react'
 
-// const PetList = ({ pins }) => {
+const PetList = ({ pins, currentPinId }) => {
 
-//        if (!pins.length) {
-//         return <Header as='h2' textAlign='center'>No Pets Yet</Header>;
-//     }
+    return (
+        <div className='petList'>
+            {pins.map(p => (
+                <>
+                    {p._id === currentPinId && (
+                        <Card centered fluid key={p._id} className="pet-card-container">
+                            <Card.Content>
+                                <Image className="image" src={p.image} size="large" rounded centered alt={p.image} />
+                                <Card.Header textAlign='center' content={p.pet} />
+                                <Card.Description textAlign='center' content={p.username} />
+                                <Card.Description textAlign='center' content={p.contact} />
+                                <Card.Description textAlign='center' content={p.pinText} />
+                                <Card.Meta textAlign='center' content={p.createdAt} />
+                            </Card.Content>
+                        </Card>
+                    )}
+                </>
+            ))}
+        </div>
+    );
+};
 
-//     return (
-//         <div className='petList'>
-//             <Header as='h2' textAlign='center'>Lost Pets</Header>
-//             {pins.map(pins => (
-//                 //key tells react to track what data to re-render if something changes
-//                 <Card centered fluid key={pins._id}>
-//                     <Card.Content>
-//                         <Image className="image" src={pins.image} size = "medium" rounded centered alt={pins.image}/>
-//                         <Card.Header textAlign='center' content={pins.pet} />
-//                         <Card.Description textAlign='center' content={pins.username}/>
-//                         <Card.Description textAlign='center' content={pins.contact}/>
-//                         <Card.Description textAlign='center' content={pins.pinText} />
-//                         <Card.Meta textAlign='center' content={pins.createdAt}/>
-//                     </Card.Content>
-//                 </Card>
-//             ))}
-//         </div>
-//     );
-// };
-
-// export default PetList;
+export default PetList;

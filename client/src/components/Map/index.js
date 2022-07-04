@@ -2,7 +2,8 @@ import "./map.css";
 import * as React from 'react';
 import Map, { Marker, Popup, FullscreenControl } from 'react-map-gl';
 import { useState } from "react";
-import { Button, Modal, Input, Form, Grid, Image, Card, Icon } from 'semantic-ui-react';
+import { Button, Modal, Input, Form, Grid, Card, Icon } from 'semantic-ui-react';
+import PetList from "../PetList";
 
 const pins = [
     {
@@ -102,7 +103,9 @@ const MapTracker = function () {
             pinText: pinText,
             lat: newPin.lat,
             long: newPin.long,
-            createdAt: currentUser.createdAt
+            createdAt: currentUser.createdAt,
+            //DEFAULT EMPTY IMAGE WHEN CREATING NEW PIN
+            image: "https://react.semantic-ui.com/images/wireframe/image.png"
         }
         await console.log(newCreatedPin);
         pins.push(newCreatedPin);
@@ -206,26 +209,16 @@ const MapTracker = function () {
                     </Map>
                 </Grid.Column>
                 <Grid.Column width={6} >
-                        {pins.map(p => (
-                            <>
-                                {p._id === currentPinId && (
-                                    <Card centered fluid key={p._id} className="pet-card-container">
-                                        <Card.Content>
-                                            <Image className="image" src={p.image} size="medium" rounded centered alt={p.image} />
-                                            <Card.Header textAlign='center' content={p.pet} />
-                                            <Card.Description textAlign='center' content={p.username} />
-                                            <Card.Description textAlign='center' content={p.contact} />
-                                            <Card.Description textAlign='center' content={p.pinText} />
-                                            <Card.Meta textAlign='center' content={p.createdAt} />
-                                        </Card.Content>
-                                    </Card>
-                                )}
-                            </>
-                        ))}
+                    {pins.map(p => (
+                        <>
+                            {p._id === currentPinId && (
+                                <PetList pins={pins} currentPinId={currentPinId} />
+                            )}
+                        </>
+                    ))}
                 </Grid.Column>
             </Grid.Row>
         </Grid>
-
     );
 };
 
