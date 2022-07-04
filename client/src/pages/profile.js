@@ -1,9 +1,9 @@
 import React from 'react'
-import {  Grid, Icon, Header, Button, Card, Modal, Input, Form, Comment } from 'semantic-ui-react';
+import {  Grid, Icon, Header, Card, Comment } from 'semantic-ui-react';
 // import { Link } from 'react-router-dom';
 
 const Profile = () => {
-    const [open, setOpen] = React.useState(false)
+    
 
     return (
     <Grid stackable>
@@ -13,45 +13,7 @@ const Profile = () => {
                     Username
                 </Header>
 
-                <Modal
-                    onClose={() => setOpen(false)}
-                    onOpen={() => setOpen(true)}
-                    open={open}
-                    trigger={<Button id='profile-button' size='large'>Find Lost Pet</Button>}
-                    >
-                    <Modal.Header>Need Help Finding Your Pet?</Modal.Header>
-                    <Modal.Content>
-                        <Modal.Description>
-                        <p>
-                            Please fill out the information below to post your lost pet and let the Lucky Duck Community aid 
-                            you in your search. Include your pet's name, your city and state, specific area your pet was last 
-                            seen, how you'd like to be contacted if spotted, and any other important details (is your pet skittish, 
-                            friendly, etc.).
-                        </p>
-                        </Modal.Description>
-                    </Modal.Content>
-                    <Modal.Actions>
-                        <Form>
-                            <Form.Field>
-                                <Input focus placeholder='Pet Name...' />
-                            </Form.Field>
-                            <Form.Field>
-                                <Input focus placeholder='City, State (i.e. Phoenix, AZ)' />
-                            </Form.Field>
-                            <Form.Field>
-                                <Input focus placeholder='Description...'  />
-                            </Form.Field>
-                            <Button
-                            content="Share pet post"
-                            labelPosition='right'
-                            icon='checkmark'
-                            id='share'
-                            onClick={() => setOpen(false)}
-                            positive
-                            />
-                        </Form>
-                    </Modal.Actions>
-                    </Modal>
+
 
             </Grid.Column >
 

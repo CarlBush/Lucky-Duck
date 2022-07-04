@@ -48,7 +48,10 @@ const PetList = ({ pins }) => {
                 <Card centered fluid key={pins._id}>
                     <Card.Content>
                         <Card.Header textAlign='center' content={pins.pet} />
+                        <Card.Description textAlign='center' content={pins.username}/>
+                        <Card.Description textAlign='center' content={pins.contact}/>
                         <Card.Description textAlign='center' content={pins.pinText} />
+                        <Card.Meta textAlign='center' content={pins.createdAt}/>
                     </Card.Content>
                 </Card>
                 // <div key={pins._id}>
