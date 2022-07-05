@@ -75,6 +75,10 @@ const MapTracker = function () {
 
     };
 
+    const handleMarkerDelete = function (id) {
+        setCurrentPinId(currentPinId.filter((pin) => pin.id !== id))
+    };
+
     //RETRIEVE THE LAT & LONG FROM DOUBLE CLICK ON MAP
     const handleAddClick = function (e) {
 
@@ -217,7 +221,7 @@ const MapTracker = function () {
                     {pins.map(p => (
                         <>
                             {p._id === currentPinId && (
-                                <PetList pins={pins} currentPinId={currentPinId} />
+                                <PetList pins={pins} currentPinId={currentPinId} handleMarkerDelete={handleMarkerDelete} />
                             )}
                         </>
                     ))}
