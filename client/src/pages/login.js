@@ -7,6 +7,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
+
 import Auth from '../utils/auth';
 
 const Login = () => {
@@ -81,6 +82,7 @@ const Login = () => {
   };
 
   return (
+    <div id='background'>
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='black' textAlign='center'>
@@ -91,8 +93,8 @@ const Login = () => {
           <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
             Something went wrong with your login credentials!
           </Alert>
-          <Form.Group>
-            <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label htmlFor='email' id='form-text'>Email</Form.Label>
             <Form.Control
               type='text'
               placeholder='Your email'
@@ -104,8 +106,8 @@ const Login = () => {
             <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group>
-            <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label htmlFor='password' id='form-text'>Password</Form.Label>
             <Form.Control
               type='password'
               placeholder='Your password'
@@ -119,7 +121,9 @@ const Login = () => {
           <Button
             disabled={!(formState.email && formState.password)}
             type='submit'
-            variant='success'>
+            variant='success'
+            id='login'
+            >
             Submit
           </Button>
         </Form>
@@ -143,12 +147,13 @@ const Login = () => {
 
 
         {error && <div>Login failed</div>}
-        <Message>
-          New? Sign up here.
-          <Link to="/signup">Sign Up</Link>
+        <Message id='message'>
+          New?
+          <Link to="/signup"> Sign up here</Link>
         </Message>
       </Grid.Column>
     </Grid>
+    </div>
   )
 }
 

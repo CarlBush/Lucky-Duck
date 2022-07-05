@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import SignUp from './pages/signup';
 import Login from './pages/login';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Profile from './pages/profile';
 

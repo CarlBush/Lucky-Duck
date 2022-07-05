@@ -30,12 +30,11 @@ export default class Navbar extends Component {
   return (
     <header className='nav'>
 
-        <Menu pointing secondary size='massive'>
-            <Menu.Item>
-                <Header as='h1' id='lucky'>
-                    Lucky Duck
-                </Header>
-            </Menu.Item>
+        <Menu tabular fluid stackable size='massive'>
+            <Menu.Header as='h1' only='widescreen' id='lucky'>
+                Lucky Duck
+
+            </Menu.Header>
 
             <Menu.Menu position='right'>
             <Menu.Item
