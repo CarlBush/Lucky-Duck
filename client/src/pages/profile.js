@@ -9,13 +9,13 @@ const Profile = () => {
         <div className='my-posts'>
         <Header as='h2' textAlign='center'>My Posts</Header>
         <Card centered fluid>
-            <Card.Content textAlign='center'>
+            <Card.Content>
                 <Header as='h2'>Boo</Header>
                 <p>
                     Last seen outside my apartment. She is black, fluffy, and sassy. Do not chase,
                     she can run way faster than you. Please call my cell if spotted at XXX-XXX-XXX.
                 </p>
-                <Comment.Group>
+                <Comment.Group id='comment'>
                     <Header as='h3' dividing>
                         Comments
                     </Header>

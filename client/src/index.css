@@ -77,5 +77,8 @@ body {
     padding: 40px;
     margin-right: 40px;
     margin-left: 40px;
-    max-width: fit-content;
+}
+
+#comment {
+    max-width: 100%;
 }
