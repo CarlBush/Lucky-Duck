@@ -14,7 +14,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware
-});
+});git 
 
 const mongoose = require("mongoose");
 // const db = require('./config/connection');
