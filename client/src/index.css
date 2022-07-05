@@ -9,7 +9,9 @@ body {
 }
 
 #login {
-    background-color: #b79ced;
+    background-color: #54C6EB;
+    border-color: #54C6EB;
+    opacity: 1;
 }
 
 #lucky {
@@ -51,4 +53,32 @@ body {
 .pet-card-container {
     justify-content: center;
     align-items: center;
+}
+
+#message {
+    background-color: white;
+}
+
+#form-text {
+    font-size: 1.2rem;
+    color:black;
+    border: none;
+}
+
+#background {
+    background-image:
+        url('./pages/assets/background-map.png')
+}
+
+#card {
+    background-color: rgb(255,255,255, .5);
+}
+.my-posts {
+    padding: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+#comment {
+    max-width: 100%;
 }
