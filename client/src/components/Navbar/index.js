@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Header, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-
-// import auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
 export default class Navbar extends Component {
   // //   const logout = event => {
@@ -46,6 +45,7 @@ export default class Navbar extends Component {
                 >
                     <Link to="/">Home</Link>
                 </Menu.Item>
+
                 <Menu.Item
                 name='Profile'
                 active={activeItem === 'Profile'}
@@ -53,6 +53,7 @@ export default class Navbar extends Component {
                 >
                     <Link to="/profile">Profile</Link>
                 </Menu.Item>
+
                 <Menu.Item
                 name='Login'
                 active={activeItem === 'Login'}
@@ -60,6 +61,15 @@ export default class Navbar extends Component {
                 >
                     <Link to="/login">Login</Link>
                 </Menu.Item>
+
+                <Menu.Item
+                name='Logout'
+                active={activeItem === 'Logout'}
+                onClick={Auth.logout}
+                >
+                    <Link to="/">Logout</Link>
+                </Menu.Item>
+
                 <Menu.Item
                 name='Signup'
                 active={activeItem === 'Signup'}
@@ -67,6 +77,7 @@ export default class Navbar extends Component {
                 >
                     <Link to="/signup">Signup</Link>
                 </Menu.Item>
+
             </Menu.Menu>
         </Menu>
       </header>

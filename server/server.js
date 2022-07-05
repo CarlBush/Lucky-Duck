@@ -7,7 +7,7 @@ const {ApolloServer} = require('apollo-server-express')
 const {typeDefs, resolvers} = require('./schemas');
 const db = require('./config/connection')
 
-// const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 // create a new apollo server and pass in our schema data
 const server = new ApolloServer({
@@ -22,7 +22,7 @@ const dotenv = require("dotenv");
 // const userRoute = require("./routes/users");
 
 const app = express();
-const PORT = process.env.PORT || 8800;
+//const PORT = process.env.PORT || 8800;
 
 dotenv.config();
 
