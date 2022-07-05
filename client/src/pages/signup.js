@@ -75,7 +75,7 @@ const Signup = () => {
 
   return (
     <div id='background'>
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' id='card'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='black' textAlign='center'>
           Sign up for an account
@@ -99,7 +99,7 @@ const Signup = () => {
             Something Went Wrong!
           </Alert>
           <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label htmlFor='username' id='form-text'>Username</Form.Label>
+            <Form.Label htmlFor='username' id='form-text'>Username:</Form.Label>
             <Form.Control
               type='text'
               placeholder='Your username'
@@ -112,7 +112,7 @@ const Signup = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label htmlFor='email' id='form-text'>Email</Form.Label>
+            <Form.Label htmlFor='email' id='form-text'>Email:</Form.Label>
             <Form.Control
               type='email'
               placeholder='Your email address'
@@ -125,7 +125,7 @@ const Signup = () => {
           </Form.Group>
 
           <Form.Group className="horizontal mb-3" controlId="formBasicPassword">
-            <Form.Label htmlFor='password' id='form-text'>Password</Form.Label>
+            <Form.Label htmlFor='password' id='form-text'>Password:</Form.Label>
             <Form.Control
               type='password'
               placeholder='Your password'

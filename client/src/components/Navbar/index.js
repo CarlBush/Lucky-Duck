@@ -35,7 +35,7 @@ export default class Navbar extends Component {
                 Lucky Duck
 
             </Menu.Header>
-
+            
             <Menu.Menu position='right'>
             <Menu.Item
                 name='Home'

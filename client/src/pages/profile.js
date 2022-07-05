@@ -9,7 +9,7 @@ const Profile = () => {
         <div className='my-posts'>
         <Header as='h2' textAlign='center'>My Posts</Header>
         <Card centered fluid>
-            <Card.Content>
+            <Card.Content textAlign='center'>
                 <Header as='h2'>Boo</Header>
                 <p>
                     Last seen outside my apartment. She is black, fluffy, and sassy. Do not chase,
