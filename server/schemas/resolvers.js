@@ -6,6 +6,9 @@ const resolvers = {
     Query: {
         pins: async () => {
             return Pin.find().sort({ createdAt: -1 });
+        },
+        users: async () => {
+            return User.find();
         }
     },
     Mutation: {
@@ -21,13 +24,13 @@ const resolvers = {
             const user = await User.findOne({ email });
 
             if (!user) {
-                throw new AuthenticationError("Incorrect credentials");
+                throw new AuthenticationError("Incorrect credentials (email)");
             }
 
             const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
-                throw new AuthenticationError("Incorrect credentials");
+                throw new AuthenticationError("Incorrect credentials (password)");
             }
 
             const token = signToken(user);
