@@ -7,17 +7,19 @@ const {ApolloServer} = require('apollo-server-express')
 const {typeDefs, resolvers} = require('./schemas');
 const db = require('./config/connection')
 
-const PORT = process.env.PORT || 3001;
-
+// const PORT = process.env.PORT || 3001;
+const { authMiddleware } = require("./utils/auth");
 // create a new apollo server and pass in our schema data
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: authMiddleware
 });
 
 const mongoose = require("mongoose");
 // const db = require('./config/connection');
 const dotenv = require("dotenv");
+
 // const pinRoute = require("./routes/pins");
 // const userRoute = require("./routes/users");
 
