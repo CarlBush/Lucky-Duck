@@ -10,10 +10,10 @@ const pinSchema = new Schema(
             minlength: 1,
             maxlength: 300
         },
-        // username: {
-        //     type: String,
-        //     require: true,
-        // },
+        username: {
+            type: String,
+            require: true,
+        },
         lat: {
             type: Number,
             require: true

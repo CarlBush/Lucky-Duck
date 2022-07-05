@@ -4,9 +4,30 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        pins: async () => {
+        pins: async (parent, {username}) => {
+            const params = username ? {username} : {};
             return Pin.find().sort({ createdAt: -1 });
-        }
+        },
+
+        pin: async (parent, {_id}) => {
+            return Pin.findOne({ _id });
+        },
+
+        // get all users
+        users: async () => {
+            return User.find()
+            .select('-__v -password')
+            .populate('pets')
+            .populate('pins');
+        },
+
+        // get single user by username
+        user: async (parent, {username}) => {
+            return User.findOne({username})
+            .select('-__v -password')
+            .populate('pets')
+            .populate('pins');
+        },
     }
 };
 

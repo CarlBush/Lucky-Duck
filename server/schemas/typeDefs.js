@@ -1,15 +1,37 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
+    type User {
+        _id: ID
+        username: String
+        email: String
+        petCount: Int
+        pins: [Pin]
+        pets: [User]
+    }
+
     type Pin {
         _id: ID
         description: String
         createdAt: String
         username: String
         image: String
+        comments: [Comments]
     }
+
+    type Comments {
+        _id: ID
+        commentsBody: String
+        createdAt: String
+        username: String
+    }
+
     type Query {
-        pins: [Pin]
+        users: [User]
+        user(username: String!): User
+        pins(username: String): [Pin]
+        pin(_id: ID!): Pin
     }
     
 `;
