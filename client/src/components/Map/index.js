@@ -130,6 +130,7 @@ const MapTracker = function () {
                         onMove={evt => setViewport(evt.viewPort)}
                         mapStyle="mapbox://styles/carlbush/cl4yu61c9000214qr90dghwba"
                         onDblClick={handleAddClick}
+                        cursor="pointer"
                     /* OTHER VIEW STYLE = mapbox://styles/mapbox/streets-v9*/
                     >
                         {pins.map((p) => (

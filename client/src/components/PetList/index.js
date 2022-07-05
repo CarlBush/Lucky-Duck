@@ -19,6 +19,7 @@ const PetList = ({ pins, currentPinId, handleMarkerDelete }) => {
                                     <Card.Description textAlign='center' content={p.description} />
                                     <Card.Meta textAlign='center' content={p.createdAt} />
                                 </Card.Content>
+                                
                                 <Button color='purple' onClick={() => handleMarkerDelete(p._id)}>Remove Lost Pet</Button>
                             </Card>
                             <Comments />
