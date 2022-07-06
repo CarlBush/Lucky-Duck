@@ -69,7 +69,6 @@ const MapTracker = function () {
 
     //ONCLICK OPENS MARKER POPUP
     const handleMarkerClick = function (id, lat, long) {
-        mapboxgl.workerClass = MapboxWorker;
         setCurrentPinId(id);
         console.log(id)
         //ONCE POPUP IS CLICKED IT WILL CENTER THE POPUP ON MAP
@@ -119,7 +118,6 @@ const MapTracker = function () {
         setNewPin(null);
     };
 
-    
 
     return (
 
