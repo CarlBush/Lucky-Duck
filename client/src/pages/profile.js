@@ -9,6 +9,7 @@ const Profile = () => {
 
     const { loading, data } = useQuery(QUERY_ME);
     const userData = data?.me || [];
+    console.log(userData)
 
     return (
         <div className='my-posts'>

@@ -23,3 +23,31 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PIN = gql`
+  mutation addPin($description: String!) {
+    addPin(description: $description) {
+      _id
+      description
+      createdAt
+      username
+      comments {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_COMMENTS = gql`
+  mutation addComments($pinId: ID!, $commentsBody: String!) {
+    addComments(pinId: $pinId, commentsBody: $commentsBody) {
+      _id
+      comments {
+        _id
+        commentsBody
+        createdAt
+        username
+      }
+    }
+  }
+`;

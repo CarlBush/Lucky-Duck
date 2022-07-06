@@ -13,7 +13,6 @@ const Home = () => {
     const pins = data?.pins || [];
     console.log(pins);
 
-
     return (
 
         <div >
