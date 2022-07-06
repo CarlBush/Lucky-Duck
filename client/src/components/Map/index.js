@@ -126,7 +126,7 @@ const MapTracker = function () {
                 <Grid.Column width={10} className="mapContainer" >
                     <Map
                         {...viewPort}
-                        mapboxAccessToken={process.env.REACT_APP_MAPBOX}
+                        mapboxAccessToken="pk.eyJ1IjoiY2FybGJ1c2giLCJhIjoiY2w0eXMydWt0MDZhaDNqcDhlc2sxdXd6ZSJ9.6ng1uZkzXMfRCcjKwJhRTA"
                         onMove={evt => setViewport(evt.viewPort)}
                         mapStyle="mapbox://styles/carlbush/cl4yu61c9000214qr90dghwba"
                         onDblClick={handleAddClick}

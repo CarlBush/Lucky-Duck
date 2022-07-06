@@ -1,5 +1,5 @@
 const express = require("express");
-
+const path = require('path');
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express')
 
@@ -40,6 +40,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   // integrate our apollo server with the express application as middleware
   server.applyMiddleware({ app });
 
+  
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server is running on port ${PORT}!`);
