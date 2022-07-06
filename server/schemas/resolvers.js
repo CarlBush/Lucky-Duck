@@ -6,41 +6,41 @@ const resolvers = {
     Query: {
 
         me: async (parent, args, context) => {
-          if (context.user) {
-            const userData = await User.findOne({})
-            .select('__v -password')
-            .populate('pins')
-            .populate('pets');
+            if (context.user) {
+                const userData = await User.findOne({ _id: context.user._id, })
+                    //.select('__v -password')
+                // .populate('pins')
+                // .populate('pets');
 
-            return userData;
-          }
+                return userData;
+            }
 
-          throw new AuthenticationError('Not logged in');
+            throw new AuthenticationError('Not logged in');
         },
 
-        pins: async (parent, {username}) => {
-            const params = username ? {username} : {};
+        pins: async (parent, { username }) => {
+            const params = username ? { username } : {};
             return Pin.find().sort({ createdAt: -1 });
         },
 
-        pin: async (parent, {_id}) => {
+        pin: async (parent, { _id }) => {
             return Pin.findOne({ _id });
         },
 
         // get all users
         users: async () => {
             return User.find()
-            .select('-__v -password')
-            .populate('pets')
-            .populate('pins');
+                .select('-__v -password')
+                .populate('pets')
+                .populate('pins');
         },
 
         // get single user by username
-        user: async (parent, {username}) => {
-            return User.findOne({username})
-            .select('-__v -password')
-            .populate('pets')
-            .populate('pins');
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
+                .select('-__v -password')
+                .populate('pets')
+                .populate('pins');
         },
     },
 
@@ -60,11 +60,11 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect Credentials');
             }
 
-            // const correctPw = await user.isCorrectPassword(password);
+            const correctPw = await user.isCorrectPassword(password);
 
-            // if (!correctPw) {
-            //     throw new AuthenticationError('Incorrect Credentials');
-            // }
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect Credentials');
+            }
 
             const token = signToken(user);
 

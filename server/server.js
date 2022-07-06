@@ -1,10 +1,10 @@
 const express = require("express");
 
 // import ApolloServer
-const {ApolloServer} = require('apollo-server-express')
+const { ApolloServer } = require('apollo-server-express')
 
 // import typeDefs and resolvers
-const {typeDefs, resolvers} = require('./schemas');
+const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection')
 
 const PORT = process.env.PORT || 3001;
@@ -16,20 +16,23 @@ const server = new ApolloServer({
   context: authMiddleware
 });
 
-const mongoose = require("mongoose");
-// const db = require('./config/connection');
 const dotenv = require("dotenv");
 
-// const pinRoute = require("./routes/pins");
-// const userRoute = require("./routes/users");
-
 const app = express();
-//const PORT = process.env.PORT || 8800;
 
 dotenv.config();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 // create a new instance of an apollo server with the graphql schema
 const startApolloServer = async (typeDefs, resolvers) => {
@@ -46,14 +49,5 @@ const startApolloServer = async (typeDefs, resolvers) => {
   })
 };
 
-
-// app.use("/api/pins", pinRoute);
-// app.use("/api/users", userRoute);
-
-// db.once("open", () => {
-//     app.listen(PORT, () => {
-//       console.log(`API server running on port ${PORT}!`);
-//     });
-//   });
 
 startApolloServer(typeDefs, resolvers);
