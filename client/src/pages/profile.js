@@ -13,7 +13,7 @@ const Profile = () => {
     return (
         <div className='my-posts'>
 
-            <Header as='h2' textAlign='center'>My Posts</Header>
+            <Header as='h2' textAlign='center' id='post-header'>My Posts</Header>
             <Card centered fluid>
                 <Card.Content>
                     <Header as="h2">{userData.username}</Header>
