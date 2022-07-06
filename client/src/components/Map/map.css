@@ -39,3 +39,7 @@ label {
     bottom: 0;
     width: 100%;
 }
+
+.modal {
+    height:auto !important;
+}
