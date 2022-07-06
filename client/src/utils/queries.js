@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_PINS = gql `
+export const QUERY_PINS = gql`
 
     query pins($username: String) {
         pins(username: $username) {
@@ -16,4 +16,14 @@ export const QUERY_PINS = gql `
             }
         }
     }
+`;
+
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+    }
+  }
 `;
