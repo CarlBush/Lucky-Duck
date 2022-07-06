@@ -16,10 +16,10 @@ const Profile = () => {
             <Header as='h2' textAlign='center' id='post-header'>My Posts</Header>
             <Card centered fluid>
                 <Card.Content>
-                    <Header as="h2">{userData.username}</Header>
-                    <Header as="h2">{userData.email}</Header>
+                    <Header as="h2">Welcome {userData.username}</Header>
+                    <Header as="h3">You can be contacted at {userData.email}</Header>
                     <br></br>
-                    <Header as='h2'>Boo</Header>
+                    <Header as='h2'>Pet Name: Boo</Header>
                     <p>
                         Last seen outside my apartment. She is black, fluffy, and sassy. Do not chase,
                         she can run way faster than you. Please call my cell if spotted at XXX-XXX-XXX.
