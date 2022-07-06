@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Image, Button } from 'semantic-ui-react'
 import Comments from '../Comment';
+import Auth from '../../utils/auth';
 
 const PetList = ({ pins, currentPinId, handleMarkerDelete }) => {
 
@@ -19,8 +20,9 @@ const PetList = ({ pins, currentPinId, handleMarkerDelete }) => {
                                     <Card.Description textAlign='center' content={p.description} />
                                     <Card.Meta textAlign='center' content={p.createdAt} />
                                 </Card.Content>
-                                
+                                {Auth.loggedIn() && (
                                 <Button color='purple' onClick={() => handleMarkerDelete(p._id)}>Remove Lost Pet</Button>
+                                )}
                             </Card>
                             <Comments />
                         </>
