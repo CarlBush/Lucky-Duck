@@ -26,13 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
 
 // create a new instance of an apollo server with the graphql schema
 const startApolloServer = async (typeDefs, resolvers) => {
@@ -40,7 +34,14 @@ const startApolloServer = async (typeDefs, resolvers) => {
   // integrate our apollo server with the express application as middleware
   server.applyMiddleware({ app });
 
-  
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+  }
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server is running on port ${PORT}!`);
