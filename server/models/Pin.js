@@ -1,7 +1,15 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require('mongoose');
+const commentsSchema = require('./Comments');
+const dateFormat = require('../utils/dateFormat');
 
-const PinSchema = new mongoose.Schema(
+const pinSchema = new Schema(
     {
+        description: {
+            type: String,
+            required: 'You need to add a description',
+            minlength: 1,
+            maxlength: 300
+        },
         username: {
             type: String,
             require: true,
@@ -13,11 +21,16 @@ const PinSchema = new mongoose.Schema(
         long: {
             type: Number,
             require: true
-        }
+        },
+        comments: [commentsSchema]
     },
     {
-        timestamps: true
+        toJSON: {
+            getters: true
+        },
+        // timestamps: true
     }
 );
 
-module.exports = mongoose.model("Pin", PinSchema);
+const Pin = model('Pin', pinSchema);
+module.exports = Pin;
