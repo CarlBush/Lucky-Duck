@@ -16,8 +16,12 @@ body {
 
 #lucky {
     font-family: 'Train One', serif;
-    font-size: 4rem;
-    font-weight: lighter;
+    font-size: 3rem;
+    font-weight:lighter;
+    padding: 10px;
+    opacity: 80%;
+    background-color:#b79ced;
+    border-radius: 50%;
 }
 
 .nav {
@@ -47,6 +51,7 @@ body {
 #footer {
     margin-bottom: 0;
     position: absolute;
+    z-index: 1;
     overflow: hidden;
 }
 
@@ -81,4 +86,15 @@ body {
 
 #comment {
     max-width: 100%;
+}
+
+.home {
+    margin: 40px;
+}
+#about {
+    padding-bottom: 40px;
+}
+
+.image {
+    margin-bottom: 2rem;
 }
