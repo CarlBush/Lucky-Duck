@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
     type User {
         _id: ID
         username: String
@@ -12,10 +13,10 @@ const typeDefs = gql`
 
     type Pin {
         _id: ID
-        pinText: String
+        description: String
         createdAt: String
         username: String
-        commentsCount: Int
+        image: String
         comments: [Comments]
     }
 
@@ -37,7 +38,7 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addPin(pinText: String!): Pin
+        addPin(description: String!): Pin
         addComments(pinId: ID!, commentsBody: String!): Pin
         addPet(petId: ID!): User
     }

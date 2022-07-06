@@ -1,4 +1,4 @@
-const { Schema } = require('mongoos');
+const { Schema } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const commentsSchema = new Schema (

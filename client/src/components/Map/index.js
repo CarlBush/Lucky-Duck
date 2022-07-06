@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button, Modal, Input, Form, Grid, Card, Icon } from 'semantic-ui-react';
 import PetList from "../PetList";
 import { InputFile } from 'semantic-ui-react-input-file'
+import Auth from "../../utils/auth";
 
 const pins = [
     {
@@ -12,7 +13,7 @@ const pins = [
         username: "Carl",
         pet: "SgtPeppers",
         contact: 5205205205,
-        pinText: "please help",
+        description: "please help",
         lat: 32.25,
         long: -110.97,
         createdAt: "06/30/2022",
@@ -23,7 +24,7 @@ const pins = [
         username: "Rod",
         pet: "ColSanders",
         contact: 4803942482,
-        pinText: "HELPPP",
+        description: "HELPPP",
         lat: 33.4,
         long: -111.9,
         createdAt: "06/20/2022",
@@ -34,7 +35,7 @@ const pins = [
         username: "Madi",
         pet: "Meowzers",
         contact: 6231235432,
-        pinText: "SOSSSSS",
+        description: "SOSSSSS",
         lat: 33.1,
         long: -111.5,
         createdAt: "05/13/2022",
@@ -75,10 +76,14 @@ const MapTracker = function () {
 
     };
 
+    const handleMarkerDelete = function (id) {
+        setCurrentPinId(currentPinId.filter((pin) => pin.id !== id))
+    };
+
     //RETRIEVE THE LAT & LONG FROM DOUBLE CLICK ON MAP
     const handleAddClick = function (e) {
 
-        const token = true /*Auth.loggedIn() ? Auth.getToken() : null;*/
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if (!token) {
             return false;
@@ -125,6 +130,7 @@ const MapTracker = function () {
                         onMove={evt => setViewport(evt.viewPort)}
                         mapStyle="mapbox://styles/carlbush/cl4yu61c9000214qr90dghwba"
                         onDblClick={handleAddClick}
+                        cursor="pointer"
                     /* OTHER VIEW STYLE = mapbox://styles/mapbox/streets-v9*/
                     >
                         {pins.map((p) => (
@@ -217,7 +223,7 @@ const MapTracker = function () {
                     {pins.map(p => (
                         <>
                             {p._id === currentPinId && (
-                                <PetList pins={pins} currentPinId={currentPinId} />
+                                <PetList pins={pins} currentPinId={currentPinId} handleMarkerDelete={handleMarkerDelete} />
                             )}
                         </>
                     ))}
