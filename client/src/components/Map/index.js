@@ -6,8 +6,6 @@ import { Button, Modal, Input, Form, Grid, Card, Icon } from 'semantic-ui-react'
 import PetList from "../PetList";
 import { InputFile } from 'semantic-ui-react-input-file'
 import Auth from "../../utils/auth";
-import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
-import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker';
 
 const pins = [
     {
