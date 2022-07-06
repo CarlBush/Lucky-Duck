@@ -21,7 +21,7 @@ const PetList = ({ pins, currentPinId, handleMarkerDelete }) => {
                                     <Card.Meta textAlign='center' content={p.createdAt} />
                                 </Card.Content>
                                 {Auth.loggedIn() && (
-                                <Button color='purple' onClick={() => handleMarkerDelete(p._id)}>Pet Found!</Button>
+                                <Button color='purple' onClick={() => handleMarkerDelete(p._id)}>Delete Post. Pet has been found!</Button>
                                 )}
                             </Card>
                             <Comments />

@@ -45,23 +45,27 @@ export default class Navbar extends Component {
                             <Link to="/">Home</Link>
                         </Menu.Item>
 
-                        <Menu.Item
-                            name='Profile'
-                            active={activeItem === 'Profile'}
-                            onClick={this.handleItemClick}
-                        >
-                            <Link to="/profile">Profile</Link>
-                        </Menu.Item>
+
 
 
                         {Auth.loggedIn() ? (
-                            <Menu.Item
-                                name='Logout'
-                                active={activeItem === 'Logout'}
-                                onClick={Auth.logout}
-                            >
-                                <Link to="/">Logout</Link>
-                            </Menu.Item>
+                            <>
+                                <Menu.Item
+                                    name='Profile'
+                                    active={activeItem === 'Profile'}
+                                    onClick={this.handleItemClick}
+                                >
+                                    <Link to="/profile">Profile</Link>
+                                </Menu.Item>
+
+                                <Menu.Item
+                                    name='Logout'
+                                    active={activeItem === 'Logout'}
+                                    onClick={Auth.logout}
+                                >
+                                    <Link to="/">Logout</Link>
+                                </Menu.Item>
+                            </>
                         ) : (
                             <>
                                 <Menu.Item
