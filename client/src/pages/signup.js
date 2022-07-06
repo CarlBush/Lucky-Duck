@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-//import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Grid, Header, Message } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Form, Button, Alert } from 'react-bootstrap';
@@ -31,20 +30,6 @@ const Signup = () => {
     });
   };
 
-  // submit form
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   try {
-  //     const { data } = await addUser({
-  //       variables: { ...formState },
-  //     });
-  //     console.log(data);
-  //     Auth.login(data.addUser.token);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -81,18 +66,6 @@ const Signup = () => {
           Sign up for an account
         </Header>
 
-
-        {/* <Form size='large' onSubmit={handleFormSubmit}>
-        <Segment stacked>
-            <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' onChange={handleChange} defaultValue={formState.username}/>
-            <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address' onChange={handleChange} defaultValue={formState.email}/>
-            <Form.Input fluidicon='lock' iconPosition='left' placeholder='Password' type='password' defaultValue={formState.password} onChange={handleChange}/>
-
-          <Button id='login' fluid size='large'>
-            Signup
-          </Button>
-        </Segment>
-      </Form> */}
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
           {/* show alert if server response is bad */}
           <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
@@ -145,8 +118,6 @@ const Signup = () => {
             Submit
           </Button>
         </Form>
-
-
 
         {error && <div>Signup failed</div>}
         <Message id = 'message'>

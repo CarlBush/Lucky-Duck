@@ -9,17 +9,18 @@ const Profile = () => {
 
     const { loading, data } = useQuery(QUERY_ME);
     const userData = data?.me || [];
-    console.log(userData)
 
     return (
         <div className='my-posts'>
+
             <Header as='h2' textAlign='center'>My Posts</Header>
             <Card centered fluid>
                 <Card.Content>
+                    <Header as="h2">{userData.username}</Header>
+                    <Header as="h2">{userData.email}</Header>
+                    <br></br>
                     <Header as='h2'>Boo</Header>
                     <p>
-                        {userData.username}
-                        {console.log(userData.username)}
                         Last seen outside my apartment. She is black, fluffy, and sassy. Do not chase,
                         she can run way faster than you. Please call my cell if spotted at XXX-XXX-XXX.
                     </p>
@@ -30,7 +31,7 @@ const Profile = () => {
 
                         <Comment>
                             <Comment.Content>
-                                <Comment.Author as='a'>Carl</Comment.Author>
+                                <Comment.Author >Carl</Comment.Author>
                                 <Comment.Metadata>
                                     <div>Today at 5:42PM</div>
                                 </Comment.Metadata>

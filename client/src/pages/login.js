@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-//import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Grid, Header, Message } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Form, Button, Alert } from 'react-bootstrap';
@@ -30,28 +29,6 @@ const Login = () => {
       [name]: value,
     });
   };
-
-  // submit form
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   try {
-  //     const { data } = await login({
-  //       variables: { ...formState },
-  //     });
-  //     console.log(data);
-
-  //     Auth.login(data.loginUser.token);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-
-  //   setFormState({
-  //     email: '',
-  //     password: '',
-  //   });
-  // };
-
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -127,24 +104,6 @@ const Login = () => {
             Submit
           </Button>
         </Form>
-
-
-
-
-
-
-        {/* <Form size='large' onSubmit={handleFormSubmit}>
-        <Segment stacked>
-          <Form.Input fluid icon='envelope' iconPosition='left' placeholder='E-mail address' onChange={handleChange} defaultValue={formState.email} />
-          <Form.Input fluid icon='lock' iconPosition='left' placeholder='Password' type='password' onChange={handleChange} defaultValue={formState.password} />
-
-          <Button id='login' fluid size='large'>
-            Login
-          </Button>
-        </Segment>
-      </Form> */}
-
-
 
         {error && <div>Login failed</div>}
         <Message id='message'>
