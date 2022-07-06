@@ -1,5 +1,6 @@
 import React from 'react';
-import {Comment, Header } from 'semantic-ui-react'
+import {Comment, Header, Form, TextArea, Button } from 'semantic-ui-react'
+import Auth from '../../utils/auth';
 
 const Comments = function () {
 
@@ -10,6 +11,12 @@ const Comments = function () {
                     Comments
                 </Header>
 
+                {Auth.loggedIn() && (
+                      <Form>
+                      <TextArea placeholder='Share your help!' style={{ minHeight: 100 }} />
+                      <Button color='teal'>Submit Comment</Button>
+                    </Form>
+                )}
                 <Comment>
                     <Comment.Content>
                         <Comment.Author as='a'>Carl</Comment.Author>
