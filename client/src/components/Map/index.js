@@ -6,6 +6,9 @@ import { Button, Modal, Input, Form, Grid, Card, Icon } from 'semantic-ui-react'
 import PetList from "../PetList";
 import { InputFile } from 'semantic-ui-react-input-file'
 import Auth from "../../utils/auth";
+import {useMutation} from '@apollo/client';
+import { ADD_PIN } from '../../utils/mutations';
+import { QUERY_PINS, QUERY_ME } from '../../utils/queries';
 
 const pins = [
     {
@@ -45,6 +48,27 @@ const pins = [
 ]
 
 const MapTracker = function () {
+
+    const [description, setDescription] = useState('');
+    const [addPin, { error }] = useMutation(ADD_PIN, {
+        update(cache, { data: { addPin } } ) {
+            try {
+                const { me } = cache.readQuery({ query: QUERY_ME });
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: {...me, pins: [...me.pins, addPin] } },
+                });
+            } catch (e) {
+                console.log(e)
+            }
+
+            const { pins } = cache.readQuery({ query: QUERY_PINS });
+            cache.writeQuery({
+                query: QUERY_PINS,
+                data: { pins: [addPin, ...pins] }
+            });
+        }
+    });
 
     const [open, setOpen] = React.useState(false)
     const currentUser = ({
@@ -102,6 +126,7 @@ const MapTracker = function () {
     //currently pushes to array "pins"
     const handleSubmit = async function (e) {
         e.preventDefault();
+
         const newCreatedPin = {
             username: currentUser.username,
             contact: currentUser.contact,

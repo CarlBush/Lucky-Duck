@@ -87,6 +87,18 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
+        // removePin: async (parent, {pinId}, context) => {
+        //     if (context.user) {
+        //         const removePin = await Pin.findOneAndDelete (
+        //             { _id: context.user._id },
+        //             { $pull: { pins: pin._id } },
+        //             { new: true }
+        //         );
+        //         return removePin;
+        //     }
+        //     throw new AuthenticationError('You need to be logged in!');
+        // },
+
         addComments: async (parent, { pinId, commentsBody }, context) => {
             if (context.user) {
                 const updatedPin = await Pin.findOneAndUpdate(

@@ -14,7 +14,6 @@ const Home = () => {
     const pins = data?.pins || [];
     console.log(pins);
 
-
     return (
         <div className='home'>
                 <Container textAlign='center' id='about'>
