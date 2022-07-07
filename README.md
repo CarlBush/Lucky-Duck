@@ -6,7 +6,7 @@ A MERN stack single-page application that works with real-world data to solve a 
 ## Tasks Completed
 * Used React for the Front End. 
 * Used GraphQL with a Node.js and Express.js server.
-* Used MondoDB and the Mongoose ODM for the database.
+* Used MongoDB and the Mongoose ODM for the database.
 * Used queries and mutations for retrieving, adding, updating, and deleting data.
 * Deployed with Heroku (with data).
 * Responsive

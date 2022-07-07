@@ -29,7 +29,7 @@ label {
 
 .mapContainer {
     position: relative;
-    height: 600px !important;
+    height: 650px !important;
     width: 100% !important;
 }
 
@@ -38,4 +38,8 @@ label {
     top: 0;
     bottom: 0;
     width: 100%;
+}
+
+.modal {
+    height:auto !important;
 }

@@ -51,3 +51,19 @@ export const ADD_COMMENTS = gql`
     }
   }
 `;
+
+export const REMOVE_PIN = gql`
+  mutation removePin($pinId: ID!) {
+    removePin(pinId: $pinId) {
+      _id
+      username
+      email
+      pins {
+        _id
+        pinId
+        description
+      }
+    }
+  }
+
+`;
